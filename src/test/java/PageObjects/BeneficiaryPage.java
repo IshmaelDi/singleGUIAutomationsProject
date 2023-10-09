@@ -21,7 +21,7 @@ public class BeneficiaryPage extends PageObject {
     String SaveBeneficiaryInformation = "//*[@id=\"mat-dialog-16\"]/app-shamba-modal/div/div[2]/div/beneficiary-create/div/div[3]/div/div/button/span";
 
     @Step("Select beneficiary title")
-     public void selecyBenfiTitle(String Title){
+     public void SelectBeneficiaryTitle(String Title){
     Select c = new Select(getDriver().findElement(By.xpath(BeneficiaryTitle)));
     c.selectByValue(Title);
 
@@ -33,7 +33,7 @@ public class BeneficiaryPage extends PageObject {
     }
 
     @Step("Enter beneficiary surname")
-    public void benSurname(String beneficiarySurname){
+    public void BeneficiarySurname(String beneficiarySurname){
         $(By.xpath(BeneficiarySurname)).sendKeys(beneficiarySurname);
     }
 
