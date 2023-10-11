@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions.*;
 
+
 import java.time.Duration;
 
 public class HomePage  extends PageObject {
@@ -19,7 +20,7 @@ public class HomePage  extends PageObject {
     String LoginBtn = "//*[@id=\"navbarSupportedContent\"]/div/div/button/span";
     String UserName = "//*[@id=\"i0116\"]";
 
-    String NextBtn = "//*[@id=\"idSIButton9\"]";
+    String NextBtn = "submit";
 
     String Password = "//*[@id=\"i0118\"]";
 
@@ -43,7 +44,7 @@ public class HomePage  extends PageObject {
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(LoginBtn))).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(UserName))).sendKeys(Username);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(NextBtn))).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(new By.ByName(NextBtn))).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(UserName))).sendKeys(password);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(SignIn))).click();
 

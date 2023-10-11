@@ -7,43 +7,46 @@ import org.openqa.selenium.support.ui.Select;
 
 public class SpousePage extends PageObject {
 
-    String SpouseTitle = "";
+    String SpouseTitleXpath  = "//*[@id=\"Title\"]";
 
-    String Names = "";
+    String NamesXpath  = "//*[@id=\"FirstNames\"]";
 
-    String Surname = "";
+    String SurnameXpath  = "//*[@id=\"Surname\"]";
 
-    String Gender = "";
+    String GenderXpath  = "//*[@id=\"Gender\"]";
 
-    String IDNumber = "";
+    String IDNumberXpath = "//*[@id=\"IdentityNumber\"]";
 
-    String DateOfBirth = "";
+    String DateOfBirthXpath  = "//*[@id=\"DateOfBirth\"]";
 
 
     @Step("Select the spouse title")
     public void SpouseTitle(String spouseTitle){
-        $(By.xpath(SpouseTitle)).sendKeys(spouseTitle);
+        $(By.xpath(SpouseTitleXpath )).sendKeys(spouseTitle);
 
     }
     @Step("Enter spouse name")
     public void SpouseName(String spousenam){
-        $(By.xpath(Names)).sendKeys(spousenam);
+        $(By.xpath(NamesXpath)).sendKeys(spousenam);
     }
     @Step("enter spouse surname")
     public void spouseSurnme(String sSurname){
-        $(By.xpath(Surname)).sendKeys(sSurname);
+        $(By.xpath(SurnameXpath )).sendKeys(sSurname);
     }
 
 
 
     @Step("select spouse gender")
     public void SelectSpousegender(String gender){
-        Select produuct = new Select(getDriver().findElement(By.xpath(Gender)));
+        Select produuct = new Select(getDriver().findElement(By.xpath(GenderXpath )));
         produuct.selectByValue(gender);
 
 
     }
-
+    @Step("Enter ID number")
+    public void EnterIDNumber(String IDNumber){
+        $(By.xpath(IDNumberXpath)).sendKeys(IDNumber);
+    }
 
 
 }

@@ -32,7 +32,7 @@ public class ChildPage extends PageObject {
         $(By.xpath(AddChildBtn)).click();
     }
     @Step("Enter a child surname")
-    public void childSurnam(String surname){
+    public void childSurname(String surname){
         $(By.xpath(childSurName)).sendKeys(surname);
     }
     @Step("Select gender for a child")

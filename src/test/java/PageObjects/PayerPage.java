@@ -10,6 +10,7 @@ public class PayerPage extends PageObject {
     String Payertitle = "//select[@id=\"Title\"]" ;
     String Names = "//input[@id=\"FirstNames\"]" ;
     String Surname = "//input[@id=\"Surname\"]" ;
+    String IDNumberXpath = "//*[@id=\"IdentityNumber\"]";
     String MobileNum = "//input[@id=\"MobileTelephoneNumber\"]" ;
     String relationship = "//select[@id=\"RelationToMember\"]" ;
     String DebitDay = "//select[@id=\"DebitDay\"]" ;
@@ -47,6 +48,9 @@ public class PayerPage extends PageObject {
         $(By.xpath(MobileNum)).sendKeys(Number);
 
     }
+    @Step("Enter ID Number")
+    public void EnterIDNumber(String IDNumber){$(By.xpath(IDNumberXpath)).sendKeys(IDNumber);}
+
     @Step("select payer relationship")
     public void selectRelationship(String RealationshipWithPayer){
         Select produuct = new Select(getDriver().findElement(By.xpath(relationship)));

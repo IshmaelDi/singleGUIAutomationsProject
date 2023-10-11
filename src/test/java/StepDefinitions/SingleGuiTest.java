@@ -6,6 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.annotations.Steps;
 
+
 public class SingleGuiTest {
 
     @Steps
@@ -34,7 +35,9 @@ public class SingleGuiTest {
     @Given("a consultant is logged in to single GUI")
     public void a_consultant_is_logged_in_to_single_gui() throws InterruptedException {
         HomePage.OpenWebsite();
+
         HomePage.loginIn("kmolale@clientele.co.za", "clientele01");
+
         HomePage.captureSale();
         HomePage.clickLeadBasket();
         leadPage.ActionSale();
@@ -51,6 +54,7 @@ public class SingleGuiTest {
         productPage.SelectPlanOption(PlanOption);
         productPage.mainLifeDOB();
         productPage.ClickView();
+        productPage.InitiateSale();
 
 
     }
@@ -73,31 +77,35 @@ public class SingleGuiTest {
     }
 
     @When("a consultant enters required payer details  {string},{string},{string},{string},{string},{string},{string}, {string}, {string}, {string}")
-    public void a_consultant_enters_required_payer_details(String Title, String  Name, String Surname, String Relationship, String DebitDay, String FirstDebitDay, String BankName, String  BranchCode, String AccountType ,String ClientNumConfirmation) {
+    public void a_consultant_enters_required_payer_details(String Title, String  Name, String Surname,String IDNumber, String Relationship, String DebitDay, String FirstDebitDay, String BankName, String  BranchCode, String AccountType ,String AccountNumber,String ClientNumConfirmation) {
         PayerPage.PayerTitle(Title);
         PayerPage.EnterPayerName(Name);
         PayerPage.EnterPayerSurname(Surname);
+        PayerPage.EnterIDNumber(IDNumber);
         PayerPage.selectRelationship(Relationship);
         PayerPage.Debitday(DebitDay);
         PayerPage.Firstdebitday(FirstDebitDay);
         PayerPage.SelectBankName(BankName);
         PayerPage.BankBranchCode(BranchCode);
         PayerPage.EnterAccType(AccountType);
-        PayerPage.EnterAccountNumber(AccountType);
+        PayerPage.EnterAccountNumber(AccountNumber);
         PayerPage.ClientNumConfirmation();
+        PayerPage.transactionMessagesConfirmation();
     }
 
     @When("a consultant enters required beneficiary details {string}, {string}, {string},{string} and Save Beneficiary Information.")
-    public void a_consultant_enters_required_beneficiary_details_and_save_beneficiary_information(String Title, String Name, String Surname, String Relationship, String SaveBeneInfo) {
+    public void a_consultant_enters_required_beneficiary_details_and_save_beneficiary_information(String Title, String Name, String Surname,String IDNumber, String Relationship, String SaveBeneInfo) {
         beneficiaryPage.SelectBeneficiaryTitle(Title);
         beneficiaryPage.BeneficiaryName(Name);
         beneficiaryPage.BeneficiarySurname(Surname);
+        beneficiaryPage.EnterIDNumber(IDNumber);
         beneficiaryPage.relationship(Relationship);
         beneficiaryPage.SaveBeneInfo();
     }
 
     @When("a consultant enters FICA declarations.")
     public void a_consultant_enters_fica_declarations() {
+       ficaPage.SaveFicaResponse();
 
     }
 

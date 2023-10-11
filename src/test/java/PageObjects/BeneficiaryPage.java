@@ -14,6 +14,8 @@ public class BeneficiaryPage extends PageObject {
 
     String BeneficiarySurname = "//input[@id=\"Surname\"]";
 
+    String IDNumberXpath = "//*[@id=\"IdentityNumber\"]";
+
     String Allocation = "";
 
     String Relationship = "//select[@id=\"Relation\"]";
@@ -36,6 +38,9 @@ public class BeneficiaryPage extends PageObject {
     public void BeneficiarySurname(String beneficiarySurname){
         $(By.xpath(BeneficiarySurname)).sendKeys(beneficiarySurname);
     }
+
+    @Step("Enter ID Number")
+    public void EnterIDNumber(String IDNumber){$(By.xpath(IDNumberXpath)).sendKeys(IDNumber);}
 
     @Step("Select beneficiary relationship")
     public void relationship(String BeneficiaryRelationship){
