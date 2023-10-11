@@ -11,6 +11,9 @@ Feature: Individual cover for all ages.
     Then a correct policy number should be generated for te client.
 
 
+    # Files
+
+
     Examples:
       | MainMemberTitle | MainMemberName| MainMemberSurname| MainMemberCellNumber| EmailAddress     | MainMemberSouthAfricanCitizen| IdNumber     | MonthlyIncome| Occupation| Education| PostalAddress | PayerTitle| PayerName| PayerSurname| Relationship| DebitDay| FirstDebitDay| BankName| BranchCode| AccountType| AccountNumber| BeneficiaryTitle| BeneficiaryName| Allocation| RelationshipII|
       | Mr              | Kgotso        | Simo             |  0620134321         | kgotsos@gmail.com| Yes                          | 9210048845735| 3000-6000    | Clerk     | Matric  | 76 HillStreet | Mr        | Leeto    |  Kgosi      | Cousin      | 25      | 25           | Capitec | 470010    |            | 1234         | Mr              | Kgomo          | AAA       | Sister        |
