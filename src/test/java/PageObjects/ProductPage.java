@@ -13,7 +13,7 @@ public class ProductPage extends PageObject {
     String GetRatesXpath = "//span[@class=\"title\"]";
     String PlanOptionXpath = "//select[@formcontrolname=\"planOption\"]";
     String ViewXpath = "/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/quote-create/div/div[1]/div/div[2]/span/button";
-    String HELPratesXpath= "/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/quote-create/div/div[1]/div/div[1]/div[1]";
+    String HELPratesXpath = "/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/quote-create/div/div[1]/div/div[1]/div[1]";
 
     String InitiateSaleXpath = "//i[@class=\"fa fa-edit\"]";
 
@@ -65,44 +65,43 @@ public class ProductPage extends PageObject {
         $(By.xpath(mainLDOBXapth)).click();
 
 
-  }
+    }
 
-        @Step("click on whilespace")
-        public void vhilespce(){
+    @Step("click on whilespace")
+    public void vhilespce() {
         $(By.xpath(HELPratesXpath)).click();
-        }
-
-
-
-    @Step("Click view")
-    public void  ClickView()throws InterruptedException{ $(By.xpath(ViewXpath)).click();
-     Thread.sleep(2000);
     }
 
 
     @Step("Click FAIS continue button")
-    public void  FAISContinueButton () throws InterruptedException {
+    public void FAISContinueButton() throws InterruptedException {
         Thread.sleep(5000);
         $(By.xpath(ContinueOnFAISDiscls)).click();
 
     }
 
 
-    public void InitiateSale(){
+    public void InitiateSale() {
         $(By.xpath(InitiateSaleXpath)).click();
     }
 
-    public void  clickContinueOnFaisDiscl(){
+
+    public void clickContinueOnFaisDiscl() {
         $(By.xpath(ContinueOnFAISDiscls)).click();
     }
-    public void clickCloseOnFaisDiscl(){
+
+    public void clickCloseOnFaisDiscl() {
         $(By.xpath(CloseOnFAISDiscls)).click();
     }
 
 
-
-
-        public void mainLifeDOB() {}
-
-
+    public void mainLifeDOB() {
     }
+
+
+    @Step("Click view")
+    public void ClickView() throws InterruptedException {
+        $(By.xpath(ViewXpath)).click();
+        Thread.sleep(2000);
+    }
+}

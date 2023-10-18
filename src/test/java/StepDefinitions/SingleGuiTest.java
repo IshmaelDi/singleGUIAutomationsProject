@@ -66,11 +66,10 @@ public class SingleGuiTest {
     public void a_consultant_starts_an_individual_cover() throws InterruptedException {
         productPage.SelectPlanOption();
         productPage.EnterMainLDOB();
-        productPage.ClickView();
         productPage.vhilespce();
         productPage.FAISContinueButton();
-
         productPage.InitiateSale();
+        productPage.ClickView();
         Thread.sleep(10000);
 
     }
