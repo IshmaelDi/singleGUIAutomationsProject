@@ -31,8 +31,8 @@ public class PayerPage extends PageObject {
 
     @Step("Select payer title ")
     public void PayerTitle(String PayerTitle){
-        Select produuct = new Select(getDriver().findElement(By.xpath(Payertitle)));
-        produuct.selectByValue(PayerTitle);
+        Select product = new Select(getDriver().findElement(By.xpath(Payertitle)));
+        product.selectByValue(PayerTitle);
     }
 
     @Step("Enter payer name")
@@ -52,36 +52,36 @@ public class PayerPage extends PageObject {
     public void EnterIDNumber(String IDNumber){$(By.xpath(IDNumberXpath)).sendKeys(IDNumber);}
 
     @Step("select payer relationship")
-    public void selectRelationship(String RealationshipWithPayer){
-        Select produuct = new Select(getDriver().findElement(By.xpath(relationship)));
-        produuct.selectByValue(RealationshipWithPayer);
+    public void selectRelationship(String RelationshipWithPayer){
+        Select product = new Select(getDriver().findElement(By.xpath(relationship)));
+        product.selectByValue(RelationshipWithPayer);
     }
     @Step("select debit day")
-    public void Debitday(String dayOfDebit){
+    public void DebitDay(String dayOfDebit){
 
-        Select produuct = new Select(getDriver().findElement(By.xpath(DebitDay)));
-        produuct.selectByValue(dayOfDebit);
+        Select product = new Select(getDriver().findElement(By.xpath(DebitDay)));
+        product.selectByValue(dayOfDebit);
     }
     @Step("select day of first debit")
-    public void Firstdebitday(String firstDayOfDebit){
-        Select produuct = new Select(getDriver().findElement(By.xpath(DebitDay)));
-        produuct.selectByValue(firstDayOfDebit);
+    public void FirstDebitday(String firstDayOfDebit){
+        Select product = new Select(getDriver().findElement(By.xpath(DebitDay)));
+        product.selectByValue(firstDayOfDebit);
     }
     @Step("Select bank name")
     public void SelectBankName(String selectBankName){
-        Select produuct = new Select(getDriver().findElement(By.xpath(BankName)));
-        produuct.selectByValue(selectBankName);
+        Select product = new Select(getDriver().findElement(By.xpath(BankName)));
+        product.selectByValue(selectBankName);
     }
 
     @Step("select bank branch code")
-    public void BankBranchCode(String branchcode){
-        Select produuct = new Select(getDriver().findElement(By.xpath(Branchcode)));
-        produuct.selectByValue(branchcode);
+    public void BankBranchCode(String branchCode){
+        Select product = new Select(getDriver().findElement(By.xpath(Branchcode)));
+        product.selectByValue(branchCode);
     }
     @Step("Select account type")
     public void EnterAccType(String Accounttype){
-        Select produuct = new Select(getDriver().findElement(By.xpath(AccountType)));
-        produuct.selectByValue(Accounttype);
+        Select product = new Select(getDriver().findElement(By.xpath(AccountType)));
+        product.selectByValue(Accounttype);
 
     }
     @Step("Enter Account number")

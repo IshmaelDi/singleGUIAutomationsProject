@@ -1,5 +1,6 @@
 package PageObjects;
 
+import net.bytebuddy.implementation.bytecode.Throw;
 import net.serenitybdd.annotations.Step;
 import net.serenitybdd.core.pages.PageObject;
 import org.openqa.selenium.By;
@@ -33,7 +34,6 @@ public class memberPage extends PageObject {
 
     String CopyToPhysicalXpath = "//*[@id=\"ngb-nav-1-panel\"]/div[1]/div/div/button/span[1]";
     String ValidateBtnXpath = "//*[@id=\"pills-tabContent\"]/member/div/div[1]/div/form/div/div[2]/div[5]/div/shamba-address/div/div[2]/div[3]/div/button/span";
-
 
 
 

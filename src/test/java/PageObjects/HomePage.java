@@ -4,6 +4,7 @@ import net.serenitybdd.annotations.Step;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.PageObjects;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -12,21 +13,23 @@ import org.openqa.selenium.support.ui.ExpectedConditions.*;
 
 import java.time.Duration;
 
-public class HomePage  extends PageObject {
+public class HomePage extends PageObject {
 
 
-    String Url = "https://shambawebtest.clientele.co.za/shambaweb/login";
+    String Url = "https://shambawebtest.clientele.co.za/shambaweb/home";
 
     String LoginBtn = "//*[@id=\"navbarSupportedContent\"]/div/div/button/span";
-    String UserName = "//*[@id=\"i0116\"]";
+    String UserNameXpath = "//*[@id=\"i0116\"]";
 
-    String NextBtn = "submit";
+    String NextBtnXpath = "//*[@id=\"idSIButton9\"]";
 
-    String Password = "//*[@id=\"i0118\"]";
+    String PasswordXpath = "//*[@id=\"i0118\"]";
 
-    String SignIn = "//*[@id=\"idSIButton9\"]";
 
-    String ClienteleLogoXpath = "//img[@class=\"logo-menu\"]";
+
+    String SignInXpath = "//*[@id=\"idSIButton9\"]";
+
+    String ClienteleLogoXpath = "//*[@id=\"navbarDropdown\"]/img";
 
     String CaptureSaleXpath = "//*[@id=\"navbarSupportedContent\"]/div/ul/li/div[2]/div[1]/div/a/span";
 
@@ -39,27 +42,25 @@ public class HomePage  extends PageObject {
         Thread.sleep(3000);
      }
     @Step("Login in using AD account")
-    public void loginIn(String Username, String password){
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(60));
-
+    public void loginIn(String Username, String password) {
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(LoginBtn))).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(UserName))).sendKeys(Username);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(new By.ByName(NextBtn))).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(UserName))).sendKeys(password);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(SignIn))).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(UserNameXpath))).sendKeys(Username);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(NextBtnXpath))).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(PasswordXpath))).sendKeys(password);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(SignInXpath))).click();
 
     }
 
     @Step("Navigate to sales page")
-    public void captureSale(){
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(60));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(ClienteleLogoXpath))).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(CaptureSaleXpath))).click();
-
+    public void captureSale()throws InterruptedException {
+        Thread.sleep(5000);
+        $(By.xpath(ClienteleLogoXpath)).click();
+        $(By.xpath(CaptureSaleXpath)).click();
     }
     @Step("Navigate to lead page")
-    public void clickLeadBasket(){
-
+    public void clickLeadBasket() throws InterruptedException {
+        Thread.sleep(5000);
         $(By.xpath(LeadBasketXpath)).click();
     }
 

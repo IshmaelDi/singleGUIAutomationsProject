@@ -26,25 +26,25 @@ public class SpousePage extends PageObject {
 
     }
     @Step("Enter spouse name")
-    public void SpouseName(String spousenam){
-        $(By.xpath(NamesXpath)).sendKeys(spousenam);
+    public void SpouseName(String spouseName){
+        $(By.xpath(NamesXpath)).sendKeys(spouseName);
     }
     @Step("enter spouse surname")
-    public void spouseSurnme(String sSurname){
+    public void spouseSurname(String sSurname){
         $(By.xpath(SurnameXpath )).sendKeys(sSurname);
     }
 
 
 
     @Step("select spouse gender")
-    public void SelectSpousegender(String gender){
-        Select produuct = new Select(getDriver().findElement(By.xpath(GenderXpath )));
-        produuct.selectByValue(gender);
+    public void SelectSpouseGender(String gender){
+        Select product = new Select(getDriver().findElement(By.xpath(GenderXpath )));
+        product.selectByValue(gender);
 
 
     }
     @Step("Enter ID number")
-    public void EnterIDNumber(String IDNumber){
+    public void SpouseIDNumber(String IDNumber){
         $(By.xpath(IDNumberXpath)).sendKeys(IDNumber);
     }
 
