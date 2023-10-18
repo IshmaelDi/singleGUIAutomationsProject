@@ -15,13 +15,13 @@ public class ProductPage extends PageObject {
     String ViewXpath = "/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/quote-create/div/div[1]/div/div[2]/span/button";
     String HELPratesXpath = "/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/quote-create/div/div[1]/div/div[1]/div[1]";
 
-    String InitiateSaleXpath = "//i[@class=\"fa fa-edit\"]";
+    String InitiateSaleXpath ="//*[@id=\"bootstrap-table\"]/tbody/tr/td[9]/button[1]";//"//i[@class=\"fa fa-edit\"]";
 
-    String ContinueOnFAISDiscls = "//*[@id=\"mat-dialog-18\"]/app-confirmation-dialog/div/div[3]/div/div[2]/button";
+    String ContinueOnFAISDiscls = "//*[@id=\"mat-dialog-32\"]/app-confirmation-dialog/div/div[3]/div/div[2]/button"; //"//*[@id=\"mat-dialog-22\"]/app-confirmation-dialog/div/div[3]/div/div[2]/button";
 
-    String CloseOnFAISDiscls = "//*[@id=\"mat-dialog-9\"]/app-confirmation-dialog/div/div[3]/div/div[1]/button";
+    //String CloseOnFAISDiscls = "//*[@id=\"mat-dialog-9\"]/app-confirmation-dialog/div/div[3]/div/div[1]/button";
     String mainLDOBXapth = "//input[@type='text']";
-    String DatepickerXpath = "/html/body/bs-datepicker-container/div/div";
+    //String DatepickerXpath = "/html/body/bs-datepicker-container/div/div";
     //String FaisDisclosureSmsBtnXpath = "//*[@id=\"mat-dialog-18\"]/app-confirmation-dialog/div/div[3]/div/div[2]/button";
 
 
@@ -68,40 +68,40 @@ public class ProductPage extends PageObject {
     }
 
     @Step("click on whilespace")
-    public void vhilespce() {
+    public void whilespce() {
         $(By.xpath(HELPratesXpath)).click();
     }
-
-
-    @Step("Click FAIS continue button")
-    public void FAISContinueButton() throws InterruptedException {
-        Thread.sleep(5000);
-        $(By.xpath(ContinueOnFAISDiscls)).click();
-
-    }
-
-
-    public void InitiateSale() {
-        $(By.xpath(InitiateSaleXpath)).click();
-    }
-
-
-    public void clickContinueOnFaisDiscl() {
-        $(By.xpath(ContinueOnFAISDiscls)).click();
-    }
-
-    public void clickCloseOnFaisDiscl() {
-        $(By.xpath(CloseOnFAISDiscls)).click();
-    }
-
-
-    public void mainLifeDOB() {
-    }
-
 
     @Step("Click view")
     public void ClickView() throws InterruptedException {
         $(By.xpath(ViewXpath)).click();
         Thread.sleep(2000);
     }
-}
+    public void InitiateSale() {
+        $(By.xpath(InitiateSaleXpath)).click();
+    }
+    @Step("Click FAIS continue button")
+    public void FAISContinueButton()  {
+        $(By.xpath(ContinueOnFAISDiscls)).click();
+
+    }
+
+
+
+    }
+
+
+
+
+
+//    public void mainLifeDOB() {
+//    }
+
+
+//    @Step("Click view")
+//    public void ClickView() throws InterruptedException {
+//        $(By.xpath(ViewXpath)).click();
+//        Thread.sleep(2000);
+//    }
+
+
