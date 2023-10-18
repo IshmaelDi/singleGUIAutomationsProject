@@ -18,7 +18,8 @@ public class LeadPage extends PageObject {
 
 
     @Step("Select a lead to action a sale")
-    public void ActionSale(){
+    public void ActionSale() throws InterruptedException {
+        Thread.sleep(5000);
 
         //  $(By.xpath(leadCheckBox));
         //  $(By.xpath(StartSaleBtn));

@@ -14,7 +14,7 @@ public class ChildPage extends PageObject {
     String childSurName = "//input[@id=\"Surname\"]";
 
     String childGender = "//select[@id=\"Gender\"]";
-    String childIDnumber = "";
+    String childIDnumber = "//*[@id=\"IdentityNumber\"]";
     String childDateOfBirth = "";
     String ChildisStudent = "//select[@id=\"IsStudent\"]";
 
@@ -40,6 +40,10 @@ public class ChildPage extends PageObject {
         Select c = new Select(getDriver().findElement(By.xpath(childGender)));
         c.selectByValue(gender);
 
+    }
+    @Step( "Enter child ID Number")
+    public void ChildIDNumber(String ChildIDNumber ){
+        $(By.xpath(childIDnumber)).sendKeys(ChildIDNumber);
     }
     @Step("select whether child is a student or not")
     public void ChildIsStudent(String  Yes_No){
