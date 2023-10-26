@@ -21,9 +21,6 @@ public class LeadPage extends PageObject {
     public void ActionSale() throws InterruptedException {
         Thread.sleep(5000);
 
-        //  $(By.xpath(leadCheckBox));
-        //  $(By.xpath(StartSaleBtn));
-
         List<WebElement> checkBoxes = getDriver().findElements(By.xpath(leadCheckBox));
         List<WebElement> startSale = getDriver().findElements(By.xpath(ActionSaleBtn));
 

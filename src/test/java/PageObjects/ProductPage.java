@@ -3,11 +3,15 @@ package PageObjects;
 import net.serenitybdd.annotations.Step;
 import net.serenitybdd.core.pages.PageObject;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import java.util.List;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 public class ProductPage extends PageObject {
-    String HELPProductXpath = "//img[@src=\"assets/Help.png\"]"; ///html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/quote/div/div[2]/div/div/div[2]/p/img
+    String HELPProductXpath = "//img[@src=\"assets/Help.png\"]";
     String PlanTypeDropdown = "//select[@formcontrolname=\"plan\" ]";
     String OKBtn = "//button[@class=\"btn btn-success\"]";
     String GetRatesXpath = "//span[@class=\"title\"]";
@@ -15,14 +19,15 @@ public class ProductPage extends PageObject {
     String ViewXpath = "/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/quote-create/div/div[1]/div/div[2]/span/button";
     String HELPratesXpath = "/html/body/shamba-root/shamba-layout/div/div[2]/sale/div/div[2]/div/app-sale-capture/div/div/div/div/div[2]/quote-create/div/div[1]/div/div[1]/div[1]";
 
-    String InitiateSaleXpath ="//*[@id=\"bootstrap-table\"]/tbody/tr/td[9]/button[1]";//"//i[@class=\"fa fa-edit\"]";
+    String InitiateSaleXpath = "//*[@id=\"bootstrap-table\"]/tbody/tr/td[9]/button[1]";
 
-    String ContinueOnFAISDiscls = "//*[@id=\"mat-dialog-32\"]/app-confirmation-dialog/div/div[3]/div/div[2]/button"; //"//*[@id=\"mat-dialog-22\"]/app-confirmation-dialog/div/div[3]/div/div[2]/button";
+    String ContinueOnFAISDiscls = "//button[normalize-space()='Continue']";
 
-    //String CloseOnFAISDiscls = "//*[@id=\"mat-dialog-9\"]/app-confirmation-dialog/div/div[3]/div/div[1]/button";
     String mainLDOBXapth = "//input[@type='text']";
-    //String DatepickerXpath = "/html/body/bs-datepicker-container/div/div";
-    //String FaisDisclosureSmsBtnXpath = "//*[@id=\"mat-dialog-18\"]/app-confirmation-dialog/div/div[3]/div/div[2]/button";
+
+
+    String FaisDisclosureSmsBtnXpath = "//*[@id=\"mat-dialog-18\"]/app-confirmation-dialog/div/div[3]/div/div[2]/button";
+    String smsBoxXpath = "//*[@id=\"cdk-overlay-39\"]";
 
 
     public void SelectHELP() throws InterruptedException {
@@ -55,21 +60,14 @@ public class ProductPage extends PageObject {
         selectObject.selectByValue("Individual");
     }
 
+
     @Step("Enter Date of Birth")
     public void EnterMainLDOB() throws InterruptedException {
         Thread.sleep(5000);
         $(By.xpath(mainLDOBXapth)).click();
 
-        $(By.xpath(mainLDOBXapth)).sendKeys("1987-05-07");
+        $(By.xpath(mainLDOBXapth)).sendKeys("1987-05-07" + Keys.ENTER);
 
-        $(By.xpath(mainLDOBXapth)).click();
-
-
-    }
-
-    @Step("click on whilespace")
-    public void whilespce() {
-        $(By.xpath(HELPratesXpath)).click();
     }
 
     @Step("Click view")
@@ -77,31 +75,28 @@ public class ProductPage extends PageObject {
         $(By.xpath(ViewXpath)).click();
         Thread.sleep(2000);
     }
+
     public void InitiateSale() {
         $(By.xpath(InitiateSaleXpath)).click();
     }
+
+
+
+
     @Step("Click FAIS continue button")
-    public void FAISContinueButton()  {
-        $(By.xpath(ContinueOnFAISDiscls)).click();
+
+    public void FAISContinueButton(String action) {
+   WebDriverWait wait =  new  WebDriverWait(getDriver(), Duration.ofSeconds(10));
+
+   WebElement  element= wait.until(ExpectedConditions.elementToBeClickable(By.xpath(ContinueOnFAISDiscls)));
+   element.click();
+
 
     }
-
-
-
-    }
-
+}
 
 
 
 
-//    public void mainLifeDOB() {
-//    }
-
-
-//    @Step("Click view")
-//    public void ClickView() throws InterruptedException {
-//        $(By.xpath(ViewXpath)).click();
-//        Thread.sleep(2000);
-//    }
 
 

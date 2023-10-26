@@ -1,14 +1,20 @@
 package PageObjects;
 
-import net.bytebuddy.implementation.bytecode.Throw;
 import net.serenitybdd.annotations.Step;
 import net.serenitybdd.core.pages.PageObject;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class memberPage extends PageObject {
 
-    String TitleXpath = "//select[@id='Title']"  ;
+    String TitleXpath = "//select[@id='Title']";
+
 
     String NameXpath = "//input[@id=\"FirstNames\" ]";
 
@@ -17,115 +23,196 @@ public class memberPage extends PageObject {
     String CellNumberXpath = "//input[@id=\"MobileTelephoneNumber\" ]";
     String EmailAddressXpath = "//*[@id=\"EmailAddress\"]";
 
-    String SouthAfricanCitizenXpath  = "//select[@id=\"IsSouthAfricanCitizen\"]";
+    String SouthAfricanCitizenXpath = "//select[@id=\"IsSouthAfricanCitizen\"]";
 
-    String IDNumXpath = "//input[@id=\"IdentityNumber\"]";
+    String EnterIDNumXpath = "//*[@id=\"IdentityNumber\"]";
 
     String DOBXpath = "//*[@id=\"DateOfBirth\"]";
 
-    String MonthlyIncomeXpath = "//select[@id=\"MonthlyIncomeRange\"]";
+    String IdNumberXpath = "//*[@id=\"mainInput\"]";
+    String ConfirmIdNoXpath = "//*[@id=\"confirmationInput\"]";
+
+    String OkBtnXpath = "//div[@class='cdk-global-overlay-wrapper']//div[2]//button[1]";
+            //"//div[@class='cdk-global-overlay-wrapper']//div[2]//button[1]";
+
+    String MonthlyIncomeXpath = "//*[@id=\"MonthlyIncomeRange\"]";
 
     String OccupationXpath = "//select[@id=\"Occupation\"]";
     String EducationXpath = "//select[@id=\"EducationLevel\"]";
-    String MedicalConditionsXpath = "";
-    String PostalAddressXpath = "//input[@id=\"PhysicalAddressLine1\"]";
-    String PostalCodeXpath = "//input[@id=\"PhysicalAddressCode\"]";
-    String SaveMainMemberXpath = "//*[@id=\"pills-tabContent\"]/member/div/div[2]/div/div[2]/button";
+    String MedicalConditionsXpath = "//*[@id=\"MedicalConditions\"]";
+    String PostalAddressXpath = "//*[@id=\"PostalAddressLine1\"]";
+    String SuburbXpath = "//*[@id=\"PostalAddressLine2\"]";
+    String TownXpath = "//*[@id=\"PostalAddressLine3\"]";
+    String PostalCodeXpath = "//*[@id=\"PostalAddressCode\"]";
+    String SaveMainMemberXpath = "//span[normalize-space()='Save Main Member']";
+            //"//*[@id=\"pills-tabContent\"]/member/div/div[2]/div/div[2]/button";
 
-    String CopyToPhysicalXpath = "//*[@id=\"ngb-nav-1-panel\"]/div[1]/div/div/button/span[1]";
+    String CopyToPhysicalXpath = "//i[@class='fa fa-clipboard']";
     String ValidateBtnXpath = "//*[@id=\"pills-tabContent\"]/member/div/div[1]/div/form/div/div[2]/div[5]/div/shamba-address/div/div[2]/div[3]/div/button/span";
 
 
 
 
+
+
     @Step("Select main member Title")
-    public void SelectTitle(String title){
-
-        Select titlee = new Select(getDriver().findElement(By.xpath(TitleXpath)));
-        titlee.selectByValue(title);
+    public void SelectTitle(String MainMemberTitle) {
+        WebElement Ti = $(By.xpath(TitleXpath));
+        selectFromDropdown(Ti, MainMemberTitle);
 
     }
+
     @Step("Enter main member Name ")
-    public void EnterName(String name){
-        $(By.xpath(NameXpath)).sendKeys(name);
+    public void EnterName(String MainMemberName) {
+        $(By.xpath(NameXpath)).sendKeys(MainMemberName);
 
     }
+
     @Step("Enter main member surname")
-    public void enterSurname(String surname){
-        $(By.xpath(SurnameXpath)).sendKeys(surname);
+    public void enterSurname(String MainMemberSurname) {
+        $(By.xpath(SurnameXpath)).sendKeys(MainMemberSurname);
 
     }
+
     @Step("Enter main member cell number")
-    public void EnterCellNumber(String CellNumber){
-    $(By.xpath(CellNumberXpath)).sendKeys(CellNumber);
+    public void EnterCellNumber(String MainMemberCellNumber) {
+        $(By.xpath(CellNumberXpath)).sendKeys(MainMemberCellNumber);
 
     }
+
     @Step("Enter Email Address")
-    public void EnterEmailAddress(String EmailAddress){
-    $(By.xpath(EmailAddressXpath)).sendKeys(EmailAddress);
+    public void EnterEmailAddress(String EmailAddress) {
+        $(By.xpath(EmailAddressXpath)).sendKeys(EmailAddress);
     }
 
     @Step("Select main member citizenship ")
-    public void SelectCitizenship( String CitizenshipYesNo){
-    Select Citizen = new Select(getDriver().findElement(By.xpath(SouthAfricanCitizenXpath)));
-    Citizen.selectByValue(CitizenshipYesNo);
+    public void SelectCitizenship(String MainMemberSouthAfricanCitizen) throws InterruptedException {
+        Thread.sleep(5000);
+        WebElement dropdown = $(By.xpath(SouthAfricanCitizenXpath));
+        Select selectObject = new Select(dropdown);
+        selectObject.selectByValue(MainMemberSouthAfricanCitizen);
 
     }
+
     @Step("Enter main member ID number ")
-    public void enterIdNumber(String MainMemberIDNUM){
-    $(By.xpath(IDNumXpath)).sendKeys(MainMemberIDNUM);
+    public void enterIdNumber() {
+        $(By.xpath(EnterIDNumXpath)).click();
     }
+
+    @Step("Enter ID number ")
+    public void IDNumber(String IdNumber) {
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+
+        WebElement ID = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(IdNumberXpath)));
+
+        ID.click();
+
+        ID.sendKeys(IdNumber);
+
+    }
+
+
+    @Step("Enter ID number ")
+    public void ConfirmID(String IdNumber) {
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+
+        WebElement ID = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(ConfirmIdNoXpath)));
+
+        ID.click();
+
+        ID.sendKeys(IdNumber);
+
+    }
+
+
+    @Step("Click Ok Button ")
+    public void ClickOnButton() {
+        $(By.xpath(OkBtnXpath)).click();
+    }
+
+
     @Step("select Date of Birth for main member")
-    public void MainMemberDOB(){
-    }
+    public void MainMemberDOB() throws InterruptedException {
+        Thread.sleep(5000);
+        $(By.xpath(DOBXpath)).click();
 
+        $(By.xpath(DOBXpath)).sendKeys("2002-02-11" + Keys.ENTER);
+
+    }
 
     @Step(" select Monthly income for main member")
-    public void selectMonthlyIncome(String MainMemberincome){
+    public void selectMonthlyIncome(String MonthlyIncome) {
 
-    Select income = new Select(getDriver().findElement(By.xpath(MonthlyIncomeXpath)));
-    income.selectByValue(MainMemberincome);
+        WebElement dropdown = $(By.xpath(MonthlyIncomeXpath));
+        Select selectObject = new Select(dropdown);
+        selectObject.selectByValue(MonthlyIncome);
+
 
     }
+
     @Step(" select occupation for main member")
-    public void selectOccupation(String MainMemberOccupation){
-     Select occupation = new Select(getDriver().findElement(By.xpath(OccupationXpath)));
-     occupation.selectByValue(MainMemberOccupation);
+    public void selectOccupation(String Occupation) throws InterruptedException {
+        Thread.sleep(5000);
+        WebElement dropdown = $(By.xpath(OccupationXpath));
+        Select selectObject = new Select(dropdown);
+        selectObject.selectByValue((Occupation));
 
-    }
-    @Step(" select Monthly income for main member")
-    public void selectEducation(String MainMemberEducation){
-    Select education = new Select(getDriver().findElement(By.xpath(EducationXpath)));
-    education.selectByValue(MainMemberEducation);
-
-    }
-    @Step ("Enter medical conditions")
-        public void selectMedicalConditions(String MedicalConditions){
-            Select occupation = new Select(getDriver().findElement(By.xpath(MedicalConditionsXpath)));
-            occupation.selectByValue(MedicalConditions);
 
     }
 
-    @Step("Enter main physical address ")
-    public void enterPhysicalAddress(String MainMemberPhysicalAddress){
-    $(By.xpath(PostalAddressXpath)).sendKeys(MainMemberPhysicalAddress);
-    }
-    @Step("Enter postal code for main member")
-    public void enterPostalCode(String Postalcode){
-    $(By.xpath(PostalCodeXpath)).sendKeys(Postalcode);
+    @Step("Enter Education")
+    public void selectEducation(String Education) throws InterruptedException {
+        Thread.sleep(5000);
+        WebElement dropdown = $(By.xpath(EducationXpath));
+        Select selectObject = new Select((dropdown));
+        selectObject.selectByValue(Education);
     }
 
-    @Step("copy to physical ")
-    public void copyToPhysical(){
-    $(By.xpath(CopyToPhysicalXpath)).click();
+
+//    @Step("Enter medical conditions")
+//    public void selectMedicalConditions() throws InterruptedException {
+//        Thread.sleep(5000);
+//        WebElement dropdown = $(By.xpath(MedicalConditionsXpath));
+//        Select selectObject = new Select((dropdown));
+//        selectObject.selectByValue("Oper");
+//
+//
+//    }
+
+    @Step("Enter Postal Address")
+    public void PostalAddress(String PostalAddress) {
+        $(By.xpath(PostalAddressXpath)).sendKeys(PostalAddress);
+
     }
-    @Step("Validate information")
-    public void clickValidate(){
-    $(By.xpath(ValidateBtnXpath)).click();
+
+    @Step("Enter Suburb")
+    public void EnterSuburb(String Suburb) {
+        $(By.xpath(SuburbXpath)).sendKeys(Suburb);
     }
-    @Step("Save main member details")
-    public void clickSaveMainMember(){
+
+    @Step("Enter Town/City")
+    public void EnterTown(String Town) {
+        $(By.xpath(TownXpath)).sendKeys(Town);
+
+    }
+
+    @Step("Enter Postal Code")
+    public void EnterPostalCode(String PostalCode) {
+        $(By.xpath(PostalCodeXpath)).sendKeys(PostalCode);
+    }
+
+    @Step("Validate Address")
+    public  void ValidateAddress(){
+        $(By.xpath(ValidateBtnXpath)).click();
+    }
+    @Step("Copy to Physical ")
+    public void CopyToPhyscButton() {
+      $(By.xpath(CopyToPhysicalXpath)).click();
+
+   }
+    @Step("Save Main Member")
+    public void SaveMainMember(){
     $(By.xpath(SaveMainMemberXpath)).click();
     }
-
 }
+

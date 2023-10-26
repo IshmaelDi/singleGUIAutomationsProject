@@ -50,7 +50,8 @@ public class Nagivation extends PageObject {
 
     }
     @Step("Navigate to premium page ")
-    public void clickPremium(){
+    public void clickPremium()throws InterruptedException{
+        Thread.sleep(5000);
         $(By.xpath(PremiumPage)).click();
 
     }
