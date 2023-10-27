@@ -1,9 +1,7 @@
-package PageObjects;
+package PageObjects.YF.pageObjects;
 
-import com.openhtmltopdf.css.parser.property.PrimitivePropertyBuilders;
 import net.serenitybdd.annotations.Step;
 import net.serenitybdd.core.pages.PageObject;
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -118,33 +116,16 @@ public class SummaryPage extends PageObject{
     @Step("Confirm Script")
     public  void ConfirmScript(){
         WebDriverWait wait = new WebDriverWait(getDriver(),Duration.ofSeconds(10));
-
         WebElement CS = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(ConfirmScript)));
         CS.click();
     }
 
 
     @Step("Authenticate")
-    public void Authenticate(){
-        WebDriverWait wait = new WebDriverWait(getDriver(),Duration.ofSeconds(10));
-
-      WebElement authenticate = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(Authenticate)));
-      authenticate.click();
-
-      getDriver().navigate().forward();
-
-      String summaryPageURL = "https://shambawebtest.clientele.co.za/shambaweb/sale/KMolale/55441be0-d4f4-43e9-975b-5f27cff86665/sale-capture/policy-summary";
-
-      String currentURL = getDriver().getCurrentUrl();
-
-      if (currentURL.equals(summaryPageURL)){
-          System.out.println("Summary page exists");
-
-      }else {
-          System.out.println("Summary page not found");
-
-      }
-
+    public void Authenticate() throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(60));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Authenticate))).click();
+        getDriver().wait();
 
 
 

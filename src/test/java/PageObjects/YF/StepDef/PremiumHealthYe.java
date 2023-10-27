@@ -1,4 +1,4 @@
-package StepDefinitions;
+package PageObjects.YF.StepDef;
 
 import PageObjects.*;
 import io.cucumber.java.en.And;
@@ -6,9 +6,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.annotations.Steps;
-
-public class SingleGuiTest {
-
+public class PremiumHealthYe {
     @Steps
     HomePage HomePage;
     @Steps
@@ -71,35 +69,35 @@ public class SingleGuiTest {
 
     @Given("a consultant enters all the necessary required member details {string},{string},{string},{string},{string},{string},{string},{string},{string},{string},{string},{string},{string},{string},{string},{string}")
     public void a_consultant_enters_all_the_necessary_required_member_details(String string, String string2, String string3, String string4, String string5, String string6, String string7, String string8, String string9, String string10, String string11, String string12, String string13, String string14, String string15, String string16) throws InterruptedException  {
-       memberPage.SelectTitle("Mr");
-       memberPage.EnterName("Kgotso");
-       memberPage.enterSurname("Simo");
-       memberPage.SelectCitizenship("Yes");
-       memberPage.enterIdNumber();
-       memberPage.IDNumber("9310256387196");// Always change ID by using ID generator
-       memberPage.ConfirmID("9310256387196");
-       memberPage.ClickOnButton();
-       memberPage.EnterCellNumber("0620134321");
-       memberPage.EnterEmailAddress("kgotsos@gmail.com");
+        memberPage.SelectTitle("Mr");
+        memberPage.EnterName("Kgotso");
+        memberPage.enterSurname("Simo");
+        memberPage.SelectCitizenship("Yes");
+        memberPage.enterIdNumber();
+        memberPage.IDNumber("9310258158421");// Always change ID by using ID generator
+        memberPage.ConfirmID("9310258158421");
+        memberPage.ClickOnButton();
+        memberPage.EnterCellNumber("0620134321");
+        memberPage.EnterEmailAddress("kgotsos@gmail.com");
 
 
-       memberPage.selectMonthlyIncome("Up to 3,000");
-       memberPage.selectOccupation("Clerk");
-       memberPage.selectEducation("Matric");
+        memberPage.selectMonthlyIncome("Up to 3,000");
+        memberPage.selectOccupation("Clerk");
+        memberPage.selectEducation("Matric");
 
-       memberPage.PostalAddress("78 Hill Street");
-       memberPage.EnterSuburb("Claremont");
-       memberPage.EnterTown("Johannesburg");
-       memberPage.EnterPostalCode("2092");
-       memberPage.CopyToPhyscButton();
-       memberPage.ValidateAddress();
-       memberPage.SaveMainMember();
-
-
+        memberPage.PostalAddress("78 Hill Street");
+        memberPage.EnterSuburb("Claremont");
+        memberPage.EnterTown("Johannesburg");
+        memberPage.EnterPostalCode("2092");
+        memberPage.CopyToPhyscButton();
+        memberPage.ValidateAddress();
+        memberPage.SaveMainMember();
 
 
 
-   }
+
+
+    }
 
 
     @Given("a consultant enters required payer details  {string},{string},{string},{string},{string},{string},{string}, {string}, {string}, {string},{string},{string},{string},{string},{string},{string}")
@@ -129,7 +127,7 @@ public class SingleGuiTest {
         PayerPage.Confirm();
         PayerPage.Checkbox2();
         PayerPage.SavePayer();
-  }
+    }
 
 
 //    @When("a consultant enters  required spouse details {string},{string},{string},{string},{string} and save spouse information.")
@@ -180,10 +178,10 @@ public class SingleGuiTest {
     @Given("a consultant selects to convert product {string} and save")
     public void a_consultant_selects_to_convert_product_and_save(String string) throws InterruptedException {
 
-       premiumPage.PremiumTab();
+        premiumPage.PremiumTab();
 //       premiumPage.selectPlanType("YG");
-       premiumPage.viewPremiumAndCoverAmount();
-       premiumPage.SavePremInfomation();
+        premiumPage.viewPremiumAndCoverAmount();
+        premiumPage.SavePremInfomation();
     }
 
     @Given("a consultant selects desired rewards.")
@@ -208,7 +206,7 @@ public class SingleGuiTest {
         SummaryPage.ConcludeSale2();
         SummaryPage.ConfirmScript();
         SummaryPage.Authenticate();
-       // SummaryPage.SummaryPage2();
+        // SummaryPage.SummaryPage2();
 
     }
 
@@ -217,9 +215,4 @@ public class SingleGuiTest {
 
     }
 
-
-//    @Then("a correct policy number should be generated for te client.")
-//    public void a_correct_policy_number_should_be_generated_for_te_client(){
-//
-//    }
 }
