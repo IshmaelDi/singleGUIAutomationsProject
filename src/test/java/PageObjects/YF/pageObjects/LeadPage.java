@@ -1,8 +1,7 @@
-package PageObjects;
+package PageObjects.YF.pageObjects;
 
 import net.serenitybdd.annotations.Step;
 import net.serenitybdd.core.pages.PageObject;
-import net.serenitybdd.core.pages.PageObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 

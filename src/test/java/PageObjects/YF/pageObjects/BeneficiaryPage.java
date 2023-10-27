@@ -1,18 +1,10 @@
-package PageObjects;
+package PageObjects.YF.pageObjects;
 
 import net.serenitybdd.annotations.Step;
 import net.serenitybdd.core.pages.PageObject;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.Select;
-import net.serenitybdd.annotations.Step;
-import net.serenitybdd.annotations.Steps;
-import net.serenitybdd.core.pages.*;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import java.util.List;
 
 public class BeneficiaryPage extends PageObject {
 

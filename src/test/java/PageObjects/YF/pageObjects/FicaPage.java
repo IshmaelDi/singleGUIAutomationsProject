@@ -1,6 +1,5 @@
-package PageObjects;
+package PageObjects.YF.pageObjects;
 
-import io.cucumber.java.ast.Y;
 import net.serenitybdd.annotations.Step;
 import net.serenitybdd.core.pages.PageObject;
 import org.openqa.selenium.By;
